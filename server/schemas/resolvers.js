@@ -71,6 +71,17 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
+    // Do we need this?
+    // updateRecipe: async (parent, { recipeId, name, ingredients, instructions, cookTime }, context) => {
+    //   if (context.user) {
+    //     const recipe = await Recipe.findOneAndUpdate(
+    //       { _id: recipeId },
+    //       { name, ingredients, instructions, cookTime },
+    //       { new: true }
+    //     );
+    //   }
+    // },
+
     removeRecipe: async (parent, { recipeId }, context) => {
       if (context.user) {
         const recipe = await Recipe.findOneAndDelete({
