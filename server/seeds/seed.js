@@ -1,6 +1,8 @@
 const db = require('../config/connection');
-const { Recipe } = require('../models');
+const { Recipe, User } = require('../models');
 const recipeData = require('./recipeData.json');
+const userData = require('./userData.json');
+
 
 db.once('open', async () => {
   try {
@@ -11,6 +13,10 @@ db.once('open', async () => {
     // Seed the database with new data
     await Recipe.insertMany(recipeData);
     console.log('Recipes seeded successfully.');
+
+    await User.insertMany(userData);
+    console.log('Users seeded successfully.');
+
 
     process.exit(0);
   } catch (err) {
