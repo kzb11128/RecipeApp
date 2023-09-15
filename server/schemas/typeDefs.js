@@ -7,7 +7,8 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    savedRecipe: [Recipe]!
+    savedRecipe: [Recipe]
+    recipes: [Recipe]
   }
 
   type Recipe {
@@ -17,6 +18,7 @@ const typeDefs = gql`
     instructions: String
     cookTime: Int
     createdAt: String
+    savedBy: [User]
   }
 
   type Auth {

@@ -93,8 +93,16 @@ const resolvers = {
       if (context.user) {
         const recipe = await Recipe.findOneAndDelete({
           _id: recipeId,
-          user: context.user._id,
+          createdBy: context.user._id,
         });
+      
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { recipes: recipeId } },
+          { new: true }
+        );
+      
+        return recipe;
       }
 
       throw new AuthenticationError('You need to be logged in!');

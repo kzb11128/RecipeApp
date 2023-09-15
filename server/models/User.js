@@ -21,6 +21,13 @@ const userSchema = new Schema({
     minlength: 5,
   },
 
+  recipes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Recipe',
+    },
+  ],
+
   savedRecipe: [
     {
       type: Schema.Types.ObjectId,
