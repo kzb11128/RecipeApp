@@ -49,14 +49,14 @@ const resolvers = {
       return { token, user };
     },
     
-    addRecipe: async (parent, { name, ingredients, instructions, cookTime }, context) => {
+    addRecipe: async (parent, { recipename, ingredients, instructions, cookTime }, context) => {
       if (context.user) {
         const recipe = await Recipe.create({
-          name,
+          recipename,
           ingredients,
           instructions,
           cookTime,
-          user: context.user._id,
+          createdBy: context.user._id,
         });
     
         await User.findByIdAndUpdate(
@@ -71,16 +71,6 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    // Do we need this?
-    // updateRecipe: async (parent, { recipeId, name, ingredients, instructions, cookTime }, context) => {
-    //   if (context.user) {
-    //     const recipe = await Recipe.findOneAndUpdate(
-    //       { _id: recipeId },
-    //       { name, ingredients, instructions, cookTime },
-    //       { new: true }
-    //     );
-    //   }
-    // },
 
     removeRecipe: async (parent, { recipeId }, context) => {
       if (context.user) {

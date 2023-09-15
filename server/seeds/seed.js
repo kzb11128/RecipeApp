@@ -1,15 +1,35 @@
-const db = require ('../config/connection');
-const { Recipe } = require('../models');
+// const db = require ('../config/connection');
+// const { Recipe } = require('../models');
 
+// const recipeData = require('./recipeData.json');
+
+// db.once('open', async () => {
+//     await Recipe.deleteMany({});
+
+//     const recipes = await Recipe.insertMany(recipeData);
+
+//     console.log('recipes seeded');
+
+//     process.exit(0);
+// });
+
+const db = require('../config/connection');
+const { Recipe } = require('../models');
 const recipeData = require('./recipeData.json');
 
 db.once('open', async () => {
-    await Recipe.deleteMany({});
+  try {
+    // Drop the entire database
+    await db.dropDatabase();
+    console.log('Database dropped.');
 
-    const recipes = await Recipe.insertMany(recipeData);
-
-    console.log('recipes seeded');
+    // Seed the database with new data
+    await Recipe.insertMany(recipeData);
+    console.log('Recipes seeded successfully.');
 
     process.exit(0);
+  } catch (err) {
+    console.error('Error seeding database:', err);
+    process.exit(1);
+  }
 });
-

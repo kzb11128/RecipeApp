@@ -1,0 +1,17 @@
+[
+  {
+    "recipename": "chicken pasta",
+    "ingredients":
+      "chicken, pasta, tomato sauce",
+    "instructions": 
+      "cook chicken, cook pasta, mix together",
+    "cookTime": 30 
+  },
+  {
+    "recipename": "beef pasta",
+    "ingredients": "beef, pasta, tomato sauce",
+
+    "instructions": "cook beef, cook pasta, mix together",
+    "cookTime": 34 
+  }
+]

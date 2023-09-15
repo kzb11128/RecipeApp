@@ -1,7 +1,7 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, default: mongoose } = require('mongoose');
 
 const recipeSchema = new Schema({
-  name: {
+  recipename: {
     type: String,
     required: true,
     unique: true,
@@ -27,6 +27,11 @@ const recipeSchema = new Schema({
     default: Date.now, // potentially adding a timestamp util once the code works
   },
 
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    // required: true,
+  },
 });
 
 const Recipe = model('recipe', recipeSchema);
