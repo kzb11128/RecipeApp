@@ -32,6 +32,13 @@ const recipeSchema = new Schema({
     ref: 'User',
     // required: true,
   },
+
+  savedBy: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+  ],
 });
 
 const Recipe = model('recipe', recipeSchema);
