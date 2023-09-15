@@ -1,9 +1,10 @@
 const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
   name: {
     type: String,
-    required: true,
+    // required: true,
   },
 
   email: {
@@ -20,7 +21,7 @@ const userSchema = new Schema({
     minlength: 5,
   },
 
-  recipes: [
+  savedRecipes: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Recipe',
