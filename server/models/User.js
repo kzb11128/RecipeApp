@@ -24,14 +24,14 @@ const userSchema = new Schema({
   recipes: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Recipe',
+      ref: 'recipe',
     },
   ],
 
   savedRecipe: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Recipe',
+      ref: 'recipe',
     },
   ],
 });

@@ -6,17 +6,20 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
+      return User.find().users;
+    },
+    users: async () => {
       return User.find().populate('savedRecipe');
     },
-    user: async (parent, {userId} ) => {
-      return User.findOne({ _id: userId }).populate('savedRecipe');
+    user: async (parent, {_id} ) => {
+      return User.findById(_id).populate('savedRecipe');
     },
-    recipes: async (parent, {userId} ) => {
-      const params = userId ? { userId } : {};
+    recipes: async (parent, {_id} ) => {
+      const params = userId ? { _id } : {};
       return Recipe.find(params).sort({ createdAt: -1 });
     },
-    recipe: async (parent, {recipeId} ) => {
-      return Recipe.findOne({ _id: recipeId });
+    recipe: async (parent, {_id} ) => {
+      return Recipe.findById(_id );
     },
     me: async (parent, args, context) => {
       if (context.user) {
