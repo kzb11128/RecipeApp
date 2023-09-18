@@ -11,11 +11,11 @@ const resolvers = {
     users: async () => {
       return User.find().populate('savedRecipe');
     },
-    user: async (parent, {_id} ) => {
-      return User.findById(_id).populate('savedRecipe');
+    user: async (parent, {_id: userId} ) => {
+      return User.findById({ _id: userId }).populate('savedRecipe');
     },
-    recipes: async (parent, {_id} ) => {
-      const params = userId ? { _id } : {};
+    recipes: async (parent, {userId} ) => {
+      const params = userId ? { userId } : {};
       return Recipe.find(params).sort({ createdAt: -1 });
     },
     recipe: async (parent, {_id} ) => {
@@ -23,7 +23,7 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('savedRecipe');
+        return User.findById({ _id: context.user._id }).populate('savedRecipe');
       }
       throw new AuthenticationError('You need to be logged in!');
     },
