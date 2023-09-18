@@ -1,9 +1,9 @@
-import Login from "./components/Login/index.js"
+import Login from "../Components/Login"
 import React from "react";
 export default function App() {
   return (
-    <main>
-      <Login />
-    </main>
+    <>
+      <Login/>
+    </>
   );
 }

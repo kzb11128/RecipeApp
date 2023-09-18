@@ -6,11 +6,11 @@ export default function recipeList({ recipeData }) {
     <div className="container">
       <h1>Recipes:</h1>
       <ul className="list-group">
-        {recipeData.map((recipe) => (
+        {/* {recipeData.map((recipe) => (
           <li key={recipe.id}>
             {`${recipe.name} ${recipe.ingredients} ${recipe.instructions} ${recipe.cookTime}`}
           </li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );
