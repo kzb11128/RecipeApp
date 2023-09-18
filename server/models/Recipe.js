@@ -18,13 +18,13 @@ const recipeSchema = new Schema({
   },
 
   cookTime: {
-    type: Number, // potentially adding a util to change to HH:MM format
+    type: Number, 
     required: true,
   },
 
   createdAt: {
     type: Date,
-    default: Date.now, // potentially adding a timestamp util once the code works
+    default: Date.now, 
   },
 
   createdBy: {
