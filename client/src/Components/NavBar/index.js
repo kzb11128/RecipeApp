@@ -19,7 +19,6 @@ export default function Navigation() {
             </div>
             {/* if logged in render logout else show login */}
 
-            
         </div>
     );
 }

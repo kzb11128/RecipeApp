@@ -1,32 +1,38 @@
-// import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_RECIPE } from '../utils/queries';
+import React from 'react';
 import RecipeList from '../Components/RecipeList';
+import Header from "../Components/Header"
+import Footer from "../Components/Footer"
+import { useQuery } from '@apollo/client';
+import { QUERY_RECIPES } from '../utils/queries';
 
+import RecipeForm from './components/RecipeForm';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_RECIPE);
-
+  const { loading, data } = useQuery(QUERY_RECIPES);
   const recipes = data?.recipes || [];
 
   return (
-    <div className="card bg-white card-rounded w-50">
-        <div className="card-header bg-dark text-center">
-            <h1>Welcome to Foodium!</h1>
+    <main>
+      <Header/>
+      <div className="flex-row justify-center">
+        <div className="col-12 col-md-10 my-3">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+
+// if looged in add recipe form
+            <>
+            <RecipeForm />
+            <RecipeList
+              recipes={recipes}
+              title="Current recipes!"
+            />
+            </>
+          )}
         </div>
-        <div className="card-body m-5">
-            <h2>Here is a list of recipes for your tasting pleasure!</h2>
-            {loading ? (
-                <div>Loading...</div>
-                ) : (
-                <RecipeList
-                recipes={recipes}
-                />
-                )}
-        </div>
-        <div className="card-footer text-center m-3">
-        </div>
-    </div>
+      </div>
+      <Footer/>
+    </main>
   );
 };
 
