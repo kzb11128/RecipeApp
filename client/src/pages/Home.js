@@ -1,38 +1,31 @@
 import React from 'react';
 import RecipeList from '../Components/RecipeList';
-import Header from "../Components/Header"
-import Footer from "../Components/Footer"
+// import Signup from "../pages/Signup"
+// import Footer from "../Components/Footer"
 import { useQuery } from '@apollo/client';
 import { QUERY_RECIPES } from '../utils/queries';
-
-import RecipeForm from '../Components/RecipeForm';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_RECIPES);
   const recipes = data?.recipes || [];
 
   return (
-    <main>
-      <Header/>
+    <div>
       <div className="flex-row justify-center">
         <div className="col-12 col-md-10 my-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
-
-// if loged in add recipe form
-            <>
-            <RecipeForm />
+            <div>
             <RecipeList
               recipes={recipes}
-              title="Current recipes!"
+              title="Current Recipes"
             />
-            </>
+            </div>
           )}
         </div>
       </div>
-      <Footer/>
-    </main>
+    </div>
   );
 };
 
