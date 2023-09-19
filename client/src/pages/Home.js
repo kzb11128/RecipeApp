@@ -10,7 +10,7 @@ const Home = () => {
   const recipes = data?.recipes || [];
 
   return (
-    <div>
+    <div className="mb-auto">
       <div className="flex-row justify-center">
         <div className="col-12 col-md-10 my-3">
           {loading ? (
