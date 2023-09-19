@@ -12,9 +12,9 @@ const Home = () => {
   const recipes = data?.recipes || [];
 
   return (
-    <main>
+    <main className='flex flex-col h-screen'>
       <Header/>
-      <div className="flex-row justify-center">
+      <div className="mb-auto">
         <div className="col-12 col-md-10 my-3">
           {loading ? (
             <div>Loading...</div>

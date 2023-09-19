@@ -29,7 +29,7 @@ const RecipeForm = () => {
   };
 
   return (
-    <div>
+    <div >
       <h3>Add your recipe to the list</h3>
       <form
         className="flex-row justify-center justify-space-between-md align-center"

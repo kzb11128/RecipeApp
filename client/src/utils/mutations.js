@@ -14,8 +14,8 @@ export const CREATE_RECIPE = gql`
 `;
 
 export const CREATE_USER = gql`
-  mutation createUser($name: String!, $email: String!, $password: String!) {
-    createUser (name: $name, email: $email, password: $password) {
+  mutation addUser($name: String!, $email: String!, $password: String!) {
+    addUser(name: $name, email: $email, password: $password) {
     _id
     name
     email
