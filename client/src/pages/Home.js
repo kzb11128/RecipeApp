@@ -5,7 +5,7 @@ import Footer from "../Components/Footer"
 import { useQuery } from '@apollo/client';
 import { QUERY_RECIPES } from '../utils/queries';
 
-import RecipeForm from './components/RecipeForm';
+import RecipeForm from '../Components/RecipeForm';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_RECIPES);
@@ -20,7 +20,7 @@ const Home = () => {
             <div>Loading...</div>
           ) : (
 
-// if looged in add recipe form
+// if loged in add recipe form
             <>
             <RecipeForm />
             <RecipeList
