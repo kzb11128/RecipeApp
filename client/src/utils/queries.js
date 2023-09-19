@@ -16,7 +16,7 @@ export const QUERY_USERS = gql`
   query allUsers {
     users {
       _id
-      name
+      username
       email
       password
     }
