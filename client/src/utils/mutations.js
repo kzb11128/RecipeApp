@@ -1,3 +1,4 @@
+
 import { gql } from '@apollo/client';
 
 export const CREATE_RECIPE = gql`
@@ -32,4 +33,18 @@ mutation($id: ID!) {
  cookTime
   }
 }
+`;
+
+export const LOGIN_USER = gql`
+  mutation loginUser($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
+      token
+      user {
+        _id
+        name
+        email
+        password
+      }
+    }
+  }
 `;
