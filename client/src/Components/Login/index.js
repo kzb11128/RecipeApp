@@ -108,7 +108,7 @@ const Login = () => {
                         />
                     </div>
                     <a
-                        href="#"
+                        href="#home"
                         className="text-xs text-green-600 hover:underline"
                     >
                         Forget Password?
@@ -124,7 +124,7 @@ const Login = () => {
                     {" "}
                     Don't have an account?{" "}
                     <a
-                        href="#"
+                        href="#home"
                         className="font-medium text-green-600 hover:underline"
                     >
                         Sign up

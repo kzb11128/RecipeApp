@@ -1,9 +1,13 @@
-import Login from "./components/Login/index.js"
+import Login from "../Components/Login"
+import Header from "../Components/Header"
+import Footer from "../Components/Footer"
 import React from "react";
 export default function App() {
   return (
-    <main>
-      <Login />
-    </main>
+    <>
+      <Header/>
+      <Login/>
+      <Footer/>
+    </>
   );
 }

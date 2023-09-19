@@ -1,37 +1,50 @@
-const { gql } = require('apollo-server');
 
-const typeDefs = gql`
-  type User {
-    id: ID!
-    username: String!
-  }
+import { gql } from '@apollo/client';
 
-  type AuthPayload {
-    token: String
-    user: User
-  }
-
-  type Mutation {
-    login(username: String!, password: String!): AuthPayload
+export const CREATE_RECIPE = gql`
+  mutation createRecipe ($recipename: String!, $ingredients: String!, $instructions: String!, $cookTime: String!) {
+    createRecipe (recipename: $recipename, ingredients: $ingredients, instructions: $instructions, cookTime: $cookTime) {
+    _id
+    recipename
+    ingredients
+    instructions
+    cookTime
+    }
   }
 `;
 
-const resolvers = {
-  Mutation: {
-    loginmutation: (_, { username, password }) => {
-      if (username === 'exampleUser' && password === 'password123') {
-        const user = { id: '1', username: username };
-        const token = 'your-authentication-token';
+export const CREATE_USER = gql`
+  mutation createUser($name: String!, $email: String!, $password: String!) {
+    createUser (name: $name, email: $email, password: $password) {
+    _id
+    name
+    email
+    password
+    }
+  }
+`;
 
-        return {
-          token,
-          user,
-        };
+export const DELETE_RECIPE = gql`
+mutation($id: ID!) {
+  deleteRecipe(id: $id) {
+ recipename
+ ingredients
+ instructions
+ cookTime
+  }
+}
+`;
+
+export const LOGIN_USER = gql`
+  mutation loginUser($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
+      token
+      user {
+        _id
+        name
+        email
+        password
       }
-
-      throw new Error('Invalid credentials');
-    },
-  },
-};
-
-module.exports = { typeDefs, resolvers };
+    }
+  }
+`;
