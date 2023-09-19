@@ -19,7 +19,7 @@ const resolvers = {
       return Recipe.find(params).sort({ createdAt: -1 });
     },
     recipe: async (parent, { recipeId } ) => {
-      return Recipe.findOne({ _id: recipeId });
+      return Recipe.findById({ _id: recipeId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
