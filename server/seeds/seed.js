@@ -11,10 +11,10 @@ db.once('open', async () => {
     console.log('Database dropped.');
 
     // Seed the database with new data
-    await Recipe.insertMany(recipeData);
+    await Recipe.create(recipeData);
     console.log('Recipes seeded successfully.');
 
-    await User.insertMany(userData);
+    await User.create(userData);
     console.log('Users seeded successfully.');
 
 
