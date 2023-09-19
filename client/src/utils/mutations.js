@@ -1,8 +1,7 @@
-
 import { gql } from '@apollo/client';
 
-export const CREATE_RECIPE = gql`
-  mutation createRecipe ($recipename: String!, $ingredients: String!, $instructions: String!, $cookTime: String!) {
+export const ADD_RECIPE = gql`
+  mutation addRecipe ($recipename: String!, $ingredients: String!, $instructions: String!, $cookTime: Int!) {
     createRecipe (recipename: $recipename, ingredients: $ingredients, instructions: $instructions, cookTime: $cookTime) {
     _id
     recipename
@@ -35,14 +34,27 @@ mutation($id: ID!) {
 }
 `;
 
+// export const LOGIN_USER = gql`
+//   mutation loginUser($username: String!, $password: String!) {
+//     login(username: $username, password: $password) {
+//       token
+//       user {
+//         _id
+//         username
+//         email
+//         password
+//       }
+//     }
+//   }
+// `;
+
 export const LOGIN_USER = gql`
-  mutation loginUser($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
       token
       user {
         _id
-        name
-        email
+        username
         password
       }
     }

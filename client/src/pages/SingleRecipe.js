@@ -1,35 +1,47 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
 import { QUERY_RECIPEBYID } from '../utils/queries';
 
-const QUERY_RECIPEBYID = gql`
-  query recipebyid($id: ID!) {
-    recipe(id: $id) {
-      recipename
-      instructions
-      ingredients
-      cookTime  
-    }
-  }
-`;
+const Recipe = () => {
+  // Use `useParams()` to retrieve value of the route parameter `:recipeId`
+  const { recipeId } = useParams();
 
-const RecipeDetailContainer = ({ recipeId }) => {
-    const {data} = useQuery(QUERY_RECIPEBYID, {
-      variables: { id: recipeId },
-    });
+  const { loading, data } = useQuery(QUERY_RECIPEBYID, {
+    // pass URL parameter
+    variables: { recipeId: recipeId },
+  });
+
+  const recipe = data?.recipe || {};
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
-    <div>
-      <h2 className="text-emerald-500 text-2xl mb-2">{recipename}</h2>
-      <p className="text-emerald-500 text-lg">Cook Time: {cookTime}</p>
-      <h3 className="text-emerald-500 mt-4 text-lg">Ingredients</h3>
-      <ul className="list-disc pl-6">
-        {recipe.ingredients.map((ingredients, index) => (
-          <li key={index} className="text-emerald-500">
-            {ingredients}
-          </li>
-        ))}
-      </ul>
-      <h3 className="text-emerald-500 mt-4 text-lg">Instructions</h3>
-      <p className="text-emerald-500">{instructions}</p>
+
+<>
+  <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+    <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
+          <h1 className="text-3xl font-semibold text-center text-green-700 underline">
+            {recipe.recipename}
+          </h1>
+      <div className="mt-6">
+          <ul className="w-full">
+            <li className="w-full border-b-2 border-neutral-100 border-opacity-100 px-6 py-3 dark:border-opacity-50">
+              Ingredients: {recipe.ingredients}
+            </li>
+            <li className="w-full border-b-2 border-neutral-100 border-opacity-100 px-6 py-3 dark:border-opacity-50">
+              Instructions: {recipe.instructions}
+            </li>
+            <li className="w-full border-neutral-100 border-opacity-100 px-6 py-3 dark:border-opacity-50">
+              Cook Time: {recipe.cookTime} minutes
+            </li>
+          </ul>
+        </div>
     </div>
-  );
+  </div>
+</>
+);
 };
+
+export default Recipe;

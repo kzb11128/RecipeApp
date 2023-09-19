@@ -1,13 +1,14 @@
 import React from 'react';
-import Login from './Login';
-import Header from "../Components/Header"
-import Footer from "../Components/Footer"
+// import Login from './Login';
+// import Header from "../Components/Header"
+// import Footer from "../Components/Footer"
+import { Link } from 'react-router-dom';
 
 export default function Signup() {
   
     return (
         <>
-            <Header/>
+
             <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
                 <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
                     <h1 className="text-3xl font-semibold text-center text-green-700 underline">
@@ -16,7 +17,7 @@ export default function Signup() {
                     <form className="mt-6">
                         <div className="mb-2">
                             <label
-                                for="username"
+                                htmlFor="username"
                                 className="block text-sm font-semibold text-gray-800"
                             >
                                 Username
@@ -29,7 +30,7 @@ export default function Signup() {
                         </div>
                         <div className="mb-2">
                             <label
-                                for="password"
+                                htmlFor="password"
                                 className="block text-sm font-semibold text-gray-800"
                             >
                                 Password
@@ -45,17 +46,17 @@ export default function Signup() {
                             </button>
                         </div>
                     </form>
-                    <p className="mt-8 text-xs font-light text-center text-gray-700">
+                    {/* <p className="mt-8 text-xs font-light text-center text-gray-700">
                         {" "}
                         Already have an account?{" "}
                         <Login to ="/login"
                         className="font-medium text-green-600 hover:underline">
                             Log In
                         </Login>
-                    </p>
+                    </p> */}
                 </div>
             </div>
-            <Footer/>
+
         </>
     );
 }

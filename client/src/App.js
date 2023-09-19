@@ -3,7 +3,11 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Components/Header';
 import Home from './pages/Home';
+import Signup from './pages/Signup';
+import Footer from './Components/Footer';
 import RecipeForm from './Components/RecipeForm';
+import Login from './pages/Login';
+import SingleRecipe from './pages/SingleRecipe';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -16,15 +20,31 @@ function App() {
       <Router>
       <div>
         <Header />
-      <RecipeForm />
           <div>
             <Routes>
             <Route 
               path="/" 
               element={<Home />} 
               />
+              <Route 
+              path="/recipe/:recipeId" 
+              element={<SingleRecipe />} 
+              />
+              <Route 
+              path="/newrecipe" 
+              element={<RecipeForm />} 
+              />
+              <Route 
+              path="/signup" 
+              element={<Signup />} 
+              />
+              <Route 
+              path="/login"
+              element={<Login />}
+              />
             </Routes>
-          </div>       
+          </div>
+          <Footer /> 
       </div>
       </Router>
     </ApolloProvider>

@@ -13,5 +13,27 @@
 
     "instructions": "cook beef, cook pasta, mix together",
     "cookTime": 34 
+  },
+  {
+    "recipename": "baguette pizza",
+    "ingredients":
+      "French baguette, pizza sauce, mozzarella cheese, pepperoni slices",
+    "instructions": 
+      "spread pizza sauce on baguette, sprinkle on cheese, scatter pepperoni, bake in the preheated oven",
+    "cookTime": 20 
+  },
+  {
+    "recipename": "bean burritos",
+    "ingredients": "refried beans, salsa, rice, cheddar cheese, flour tortillas",
+
+    "instructions": "combine beans, salsa, rice and cheese, cover and bake",
+    "cookTime": 35 
+  },
+  {
+    "recipename": "stuffed peppers",
+    "ingredients": "rice, ground beef, green peppers, tomato sauce",
+
+    "instructions": "cook beef, hollow out peppers, mix ingredients and fill peppers, bake",
+    "cookTime": 85 
   }
 ]
