@@ -1,9 +1,11 @@
 import React from 'react';
-import RecipeList from '../components/RecipeList';
+import RecipeList from '../Components/RecipeList';
+import Header from "../Components/Header"
+import Footer from "../Components/Footer"
 import { useQuery } from '@apollo/client';
 import { QUERY_RECIPES } from '../utils/queries';
 
-import RecipeForm from './components/RecipeForm';
+import RecipeForm from '../Components/RecipeForm';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_RECIPES);
@@ -11,13 +13,14 @@ const Home = () => {
 
   return (
     <main>
+      <Header/>
       <div className="flex-row justify-center">
         <div className="col-12 col-md-10 my-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
 
-// if looged in add recipe form
+// if loged in add recipe form
             <>
             <RecipeForm />
             <RecipeList
@@ -28,6 +31,7 @@ const Home = () => {
           )}
         </div>
       </div>
+      <Footer/>
     </main>
   );
 };

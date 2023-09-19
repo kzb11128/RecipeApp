@@ -15,3 +15,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-items {
+list-style: none ;
+display: flex;
+font-size: large;
+}
+
+.nav-items > li {
+padding: 10px;
+}
+
+.nav-logo {
+  width: 50px;
+  margin-left: 10px;
+}
