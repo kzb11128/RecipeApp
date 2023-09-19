@@ -29,7 +29,7 @@ const RecipeDetailContainer = ({ recipeId }) => {
         ))}
       </ul>
       <h3 className="text-emerald-500 mt-4 text-lg">Instructions</h3>
-      <p className="text-emerald-500">{recipe.instructions}</p>
+      <p className="text-emerald-500">{instructions}</p>
     </div>
   );
 };
