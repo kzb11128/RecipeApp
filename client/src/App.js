@@ -1,7 +1,6 @@
 import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Users from './pages/Users';
 
@@ -15,7 +14,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
       <div>
-      <Navbar />
           <div>
             <Routes>
             <Route 
