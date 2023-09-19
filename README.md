@@ -15,7 +15,7 @@ Welcome to RecipeApp! This web application allows users to share recipes and sav
 
 ## Demo
 
-A live demo of the website can be found at https://pure-scrubland-99203-50ab01d03184.herokuapp.com/.
+A live demo of the website can be found at [Heroku](TBD).
 
 ## Features
 
