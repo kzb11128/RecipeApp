@@ -1,6 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function Login() {
+const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevents the default form submission behavior
+  
+    try {
+      const { data } = await loginMutation({
+        variables: { username, password },
+      });
+  
+      // Handle the response, e.g., redirect to a new page on successful login
+      if (data.login) {
+        // Redirect or perform any other actions on successful login
+        console.log('Login successful!');
+      } else {
+        console.error('Login failed');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  };
+  
+
+  const loginUser = async (username, password) => {
+    try {
+      // Make a POST request to the login endpoint
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // Send the username and password in the request body as JSON
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
+  
+      // Check if the response is not successful (HTTP status code other than 2xx)
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      // Parse the response as JSON
+      const data = await response.json();
+  
+      // Return a success status and the response data
+      return {
+        success: true,
+        data,
+      };
+    } catch (error) {
+      // Handle any errors that occur during the fetch or JSON parsing
+      console.error('Error logging in:', error);
+  
+      // Return a failure status and an error message
+      return {
+        success: false,
+        error: 'Error logging in',
+      };
+    }
+  };
+  
+
   
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -61,3 +134,5 @@ export default function Login() {
         </div>
     );
 }
+
+export default Login;
