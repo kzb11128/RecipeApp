@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export default function Header() {
     return(
         <>
-         <header id='header' className='w-full p-5 bg-emerald-600 h-full flex flex-wrap items-center justify-between mx-auto p-4'>
+         <header id='header' className='w-full p-5 bg-emerald-600 h-auto flex flex-wrap items-center justify-between mx-auto'>
             <div className="flex items-center">
                 <img src={logo} alt='logo' className="h-20 mr-3" />
                 <span className="self-center text-white text-4xl font-bold">Foodium</span>
@@ -21,21 +21,21 @@ export default function Header() {
                 </li>
                 <li className='lg:flex-row sm:flex-col flex-col md:text-2xl text-lg font-bold float-right md:my-4 text-white'>
                     <div className='px-3 hover:text-gray-300'>
-                        <Link to='newrecipe'>
+                        <Link to='/newrecipe'>
                             Create
                         </Link>
                     </div>
                 </li>
                 <li className='lg:flex-row sm:flex-col flex-col md:text-2xl text-lg font-bold float-right md:my-4 text-white'>
                     <div className='px-3 hover:text-gray-300'>
-                        <Link to='signup'>
+                        <Link to='/signup'>
                             Signup
                         </Link>
                     </div>
                 </li>
                 <li className='lg:flex-row sm:flex-col flex-col md:text-2xl text-lg font-bold float-right md:my-4 text-white'>
                     <div className='px-3 hover:text-gray-300'>
-                        <Link to='login'>
+                        <Link to='/login'>
                             Login
                         </Link>
                     </div>
