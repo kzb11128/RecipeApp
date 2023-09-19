@@ -29,14 +29,14 @@ const recipeSchema = new Schema({
 
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'user',
     // required: true,
   },
 
   savedBy: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'User',
+      ref: 'user',
     },
   ],
 });
