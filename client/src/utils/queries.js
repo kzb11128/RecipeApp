@@ -23,13 +23,35 @@ export const QUERY_USERS = gql`
   }
 `;
 
+// export const QUERY_RECIPEBYID = gql`
+//     query recipebyid($id: ID!) {
+//   recipe(id: $id) {
+//     recipename
+//     instructions
+//     ingredients
+//     cookTime  
+// }
+// }
+// `;
+
 export const QUERY_RECIPEBYID = gql`
-    query recipebyid($id: ID!) {
-  recipe(id: $id) {
-    recipename
-    instructions
-    ingredients
-    cookTime  
-}
-}
+  query recipebyid($recipeId: ID!) {
+    recipe(recipeId: $recipeId) {
+      _id
+	  recipename
+      instructions
+      ingredients
+      cookTime  
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+    }
+  }
 `;
