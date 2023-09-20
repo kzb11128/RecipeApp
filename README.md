@@ -15,7 +15,7 @@ Welcome to RecipeApp! This web application allows users to share recipes and sav
 
 ## Demo
 
-A live demo of the website can be found at [Heroku](https://dashboard.heroku.com/apps/stormy-oasis-31724)
+A live demo of the website can be found at [Heroku](https://stormy-oasis-31724-1a4cead7c330.herokuapp.com/)
 
 ## Features
 
